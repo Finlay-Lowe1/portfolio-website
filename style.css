@@ -1,7 +1,40 @@
 body {
     padding-top: 4.5rem;
     background-color: black;
-    color:aliceblue;
+    color: aliceblue;
+}
+
+html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4.5rem;
+    scroll-behavior: smooth;
+}
+
+main>section {
+
+    min-height: calc(50vh - 4.5rem);
+    min-height: calc(50svh - 4.5rem);
+
+    text-align: center;
+    padding-block: 2rem;
+    scroll-snap-align: start;
+    scroll-snap-stop: normal;
+}
+
+main>section.row {
+    align-items: center;
+}
+
+main>section:not(.row) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
 }
 
 /* --- navbar styling --- */

@@ -155,42 +155,81 @@
 
     <!-- Scroll effect for navbar -->
     <script>
-    const navbar = document.querySelector(".navbarScroll");
-    let lastScrollY = window.scrollY;
-    let direction = 0;
-    let distance = 0;
-    const threshold = 30;
+        const navbar = document.querySelector(".navbarScroll");
+        let lastScrollY = window.scrollY;
+        let direction = 0;
+        let distance = 0;
+        const threshold = 30;
+        const coverPage = document.querySelector("#home");
+        let navigatingFromNavbar = false;
+        let navigationTimer;
 
-    window.addEventListener("scroll", () => {
-        const currentY = window.scrollY;
-        const delta = currentY - lastScrollY;
-        lastScrollY = currentY;
+        navbar.querySelectorAll('a[href^="#"]').forEach((link) => {
+            link.addEventListener("click", () => {
+                navigatingFromNavbar = true;
+                navbar.classList.remove("navbar-hidden");
 
-        if (currentY <= 50) {
-            navbar.classList.remove("scrolled", "navbar-hidden");
-            direction = 0;
-            distance = 0;
-            return;
-        }
+                clearTimeout(navigationTimer);
+                navigationTimer = setTimeout(() => {
+                    navigatingFromNavbar = false;
+                }, 500);
+            });
+        });
 
-        navbar.classList.add("scrolled");
+        window.addEventListener("scroll", () => {
+            const currentY = window.scrollY;
+            const delta = currentY - lastScrollY;
+            lastScrollY = currentY;
 
-        const nextDirection = Math.sign(delta);
-        if (nextDirection === 0) return;
+            if (currentY <= 50) {
+                navbar.classList.remove("scrolled", "navbar-hidden");
+                direction = 0;
+                distance = 0;
+                return;
+            }
 
-        if (nextDirection !== direction) {
-            direction = nextDirection;
-            distance = 0;
-        }
+            navbar.classList.add("scrolled");
 
-        distance += Math.abs(delta);
+            const nextDirection = Math.sign(delta);
+            if (nextDirection === 0) return;
 
-        if (distance >= threshold) {
-            navbar.classList.toggle("navbar-hidden", direction > 0);
-            distance = 0;
-        }
-    }, { passive: true });
-</script>
+            if (nextDirection !== direction) {
+                direction = nextDirection;
+                distance = 0;
+            }
+
+            distance += Math.abs(delta);
+
+            if (distance >= threshold) {
+                if (direction < 0) {
+                    navbar.classList.remove("navbar-hidden");
+                }
+
+                distance = 0;
+            }
+
+            const coverPageMidpoint =
+                coverPage.getBoundingClientRect().top + currentY + coverPage.offsetHeight / 2;
+
+            if (
+                direction > 0 &&
+                currentY + navbar.offsetHeight >= coverPageMidpoint
+            ) {
+                navbar.classList.add("navbar-hidden");
+            }
+
+            if (navigatingFromNavbar) {
+                navbar.classList.remove("navbar-hidden");
+
+                clearTimeout(navigationTimer);
+                navigationTimer = setTimeout(() => {
+                    navigatingFromNavbar = false;
+                }, 300);
+
+                return;
+            }
+        }, { passive: true });
+    </script>
 
 
 
