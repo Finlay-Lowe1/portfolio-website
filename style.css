@@ -11,20 +11,17 @@ html {
 
 main>section {
 
-    min-height: calc(50vh - 4.5rem);
-    min-height: calc(50svh - 4.5rem);
+    min-height: calc(100vh - 4.5rem);
+    min-height: calc(100svh - 4.5rem);
 
     text-align: center;
     padding-block: 2rem;
     scroll-snap-align: start;
-    scroll-snap-stop: normal;
+    scroll-snap-stop: always;
 }
 
-main>section.row {
-    align-items: center;
-}
 
-main>section:not(.row) {
+main>section {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -53,39 +50,76 @@ main>section:not(.row) {
     transform: translateY(-100%);
 }
 
+/* --- home styling --- */
+#home {
+    padding-top: clamp(4rem, 10vh, 8rem);
+}
 
+.home-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: clamp(3rem, 7vw, 7rem);
+    align-items: start;
+    gap: 3rem;
+}
+
+.home-introduction {
+    text-align: left;
+}
+
+.home-label,
+.about-label {
+    margin: 0 0 1.5rem;
+    color: #777;
+    font-size: 0.75rem;
+    line-height: 1;
+    letter-spacing: 0.2em;
+    min-height: 0.75rem;
+}
+
+.home-introduction h1 {
+    max-width: 700px;
+    font-size: clamp(3.25rem, 6vw, 6.5rem);
+    line-height: 0.95;
+}
+
+.home-introduction h1 span,
+.about-content h2 span {
+    display: block;
+    color: #dd4b27;
+    font-family: Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.social-links a {
+    color: #777;
+    align-items: center;
+    transition: color 150ms ease;
+}
+
+.social-links a:hover {
+    color: #111;
+}
 
 /* --- about styling --- */
-.about-grid {
-    display: grid;
-    grid-template-columns: minmax(0, 3fr) minmax(200px, 2fr);
-    align-items: center;
-}
 
 .about-content {
     max-width: 650px;
     text-align: left;
 }
 
-.about-label {
-    margin-bottom: 1.5rem;
-    color: #777;
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-}
-
 .about-content h2 {
-    margin: 0 0 2rem;
-    font-size: 2rem;
-    font-weight: 700;
+    margin: 0 0 1.25rem;
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
     line-height: 1.2;
-}
-
-.about-content h2 span {
-    display: block;
-    color: #dd4b27;
-    font-family: Georgia, serif;
-    font-weight: 400;
 }
 
 .about-content p:not(.about-label) {
@@ -95,18 +129,24 @@ main>section:not(.row) {
     color: #555;
 }
 
-.about-visual {
-    min-height: 300px;
-}
 
 @media (max-width: 768px) {
-    .about-grid {
+    .home-grid {
         grid-template-columns: 1fr;
-        min-height: auto;
+        align-items: start;
+        gap: 2.5rem;
     }
 
-    .about-visual {
-        display: none;
+    .home-introduction h1 {
+        font-size: clamp(2.8rem, 14vw, 4.5rem);
+    }
+
+    .about-content {
+        max-width: none;
+    }
+
+    .social-links {
+        flex-wrap: wrap;
     }
 
     .project-grid {
