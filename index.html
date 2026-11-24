@@ -65,6 +65,8 @@
                         </h1>
 
                         <nav class="social-links" aria-label="Social links">
+                            <a href="mailto:your@email.com">your@email.com</a>
+
                             <a href="#" target="_blank" rel="noopener">
                                 <i class="bi bi-github"></i>
                                 GitHub
@@ -179,34 +181,78 @@
 
 
             <section id="skills" class="container py-5">
-                <h2>skills</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente sunt, veniam nesciunt similique
-                    doloremque repellat perspiciatis minus tenetur, omnis culpa fugiat, corrupti harum quidem eaque
-                    praesentium? Sunt eos repudiandae maiores.</p>
-            </section>
+                <h2 class="skills-heading"> skills</h2>
+                <div class="skills-grid">
+                    <article class="skill-card">
+                        <h3>Languages &amp; Development</h3>
 
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">C</span>
+                            <span class="project-tag">C++</span>
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
 
+                        <p>
+                            Experience developing projects with multiple programming languages,
+                            with a growing focus on software engineering and web development.
+                        </p>
+                    </article>
 
-            <section id="contact" class="container py-5">
-                <h2>Contact</h2>
-                <p></p>
+                    <article class="skill-card">
+                        <h3>Tools &amp; Technologies</h3>
+
+                        <div class="project-tags">
+                            <span class="project-tag">Git</span>
+                            <span class="project-tag">GitHub</span>
+                            <span class="project-tag">VS Code</span>
+                            <span class="project-tag">Bootstrap</span>
+                        </div>
+
+                        <p>
+                            Comfortable using version control, modern editors and frontend
+                            frameworks while building and maintaining software projects.
+                        </p>
+                    </article>
+                </div>
             </section>
         </main>
 
-        <footer class="text-center py-4 border-top">
-            <nav class="d-flex justify-content-center flex-wrap gap-3">
-                <a class="btn" href="" role="button">
-                    github
-                </a>
-                <button class="btn btn-link back-to-top" type="button">
+        <footer id="contact" class="container footer-bar">
+            <div class="footer-contact">
+                <div class="footer-grid">
+                    <div class="footer-email">
+                        <p>Email</p>
+                        <a href="mailto:your@email.com">your@email.com</a>
+                    </div>
+
+                    <div class="footer-social">
+                        <p>Social</p>
+
+                        <a href="#" target="_blank" rel="noopener">
+                            GitHub
+                            <i class="bi bi-github"></i>
+                        </a>
+
+                        <a href="#" target="_blank" rel="noopener">
+                            LinkedIn
+                            <i class="bi bi-linkedin"></i>
+                        </a>
+                    </div>
+                </div>
+                <button class="back-to-top" type="button">
                     back to top
+                    <i class="bi bi-arrow-up"></i>
                 </button>
-            </nav>
+
+                <p>&copy; Finlay Lowe</p>
         </footer>
 
     </div>
 
-    
+
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous">
@@ -291,7 +337,7 @@
                 navbar.classList.add("navbar-hidden");
             }
 
-            
+
         }, { passive: true });
     </script>
 
