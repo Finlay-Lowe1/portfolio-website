@@ -53,3 +53,77 @@ main>section:not(.row) {
 .navbarScroll.navbar-hidden {
     transform: translateY(-100%);
 }
+
+/* --- projects styling ---*/
+#projects .projects {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 1rem;
+}
+
+.project-card-featured {
+    grid-column: span 2;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+}
+
+.project-tag {
+    padding: 0.2rem 0.45rem;
+    border: 1px solid #111;
+    background: #fff;
+    font-family: monospace;
+    font-size: 0.7rem;
+    font-weight: 700;
+}
+
+.project-card h3 {
+    margin: 0.8rem 0 0.5rem;
+    font-weight: 800;
+}
+
+.project-card p {
+    line-height: 1.5;
+}
+
+.project-card-accent {
+    background: #19a9da;
+}
+
+.project-action {
+    margin-top: auto;
+    padding: 0.65rem;
+    border: 2px solid #111;
+    background: #f7f4e8;
+    text-align: center;
+    font-family: monospace;
+    font-weight: 800;
+}
+
+.project-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 0 #111;
+}
+
+.project-card,
+.project-card:hover {
+    transition: 150ms ease;
+}
+
+@media (max-width: 768px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .project-card-featured {
+        grid-column: auto;
+    }
+}
