@@ -4,6 +4,9 @@
     --color-copy: #555;
     --color-accent: #dd4b27;
     --color-border: var(--color-ink);
+    --color-card-border: #e6e1dc;
+    --color-card-shadow: rgba(17, 17, 17, 0.06);
+    --color-tag-background: #f7f4f1;
     --color-shadow: rgba(0, 0, 0, 0.1);
     --color-nav-overlay: rgba(0, 0, 0, 0.1);
     --motion-fast: 150ms;
@@ -77,13 +80,19 @@ main>section {
 }
 
 .home-label,
-.about-label {
+.about-label,
+.section-label {
     margin: 0 0 1.5rem;
     color: var(--color-muted);
     font-size: 0.75rem;
     line-height: 1;
     letter-spacing: 0.2em;
     min-height: 0.75rem;
+}
+
+.section-label {
+    text-transform: uppercase;
+    text-align: left;
 }
 
 .home-introduction h1 {
@@ -93,7 +102,8 @@ main>section {
 }
 
 .home-introduction h1 span,
-.about-content h2 span {
+.about-content h2 span,
+.cv-content .about-label {
     display: block;
     color: var(--color-accent);
     font-family: Georgia, serif;
@@ -136,7 +146,19 @@ main>section {
     color: var(--color-copy);
 }
 
+.cv-content {
+    margin-top: 1.25rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--color-card-border);
+}
 
+.cv-content .about-label {
+    margin-bottom: 0.5rem;
+}
+
+.cv-content .social-links {
+    margin-top: 0;
+}
 
 /* --- projects styling ---*/
 .projects {
@@ -166,7 +188,7 @@ main>section {
 .project-card,
 .skill-card {
     padding: 1rem;
-    border: 2px solid var(--color-border);
+    border: 1px solid var(--color-card-border);
 }
 
 .project-card {
@@ -189,16 +211,23 @@ main>section {
 .project-tag {
     width: fit-content;
     padding: 0.2rem 0.45rem;
-    border: 1px solid var(--color-border);
+    background: var(--color-tag-background);
+    color: var(--color-muted);
     font-size: 0.7rem;
     font-weight: 700;
     line-height: 1;
 }
 
 
-.project-card h3 {
+.project-card h3,
+.skill-card h3 {
     margin: 0 0 1rem;
-    font-weight: 800;
+    font-size: clamp(1.25rem, 2vw, 1.6rem);
+    font-weight: 700;
+}
+
+.project-card h3 {
+    color: var(--color-ink);
 }
 
 .project-card p {
@@ -211,13 +240,23 @@ main>section {
 .project-action {
     margin-top: auto;
     padding: 0.65rem;
+    color: var(--color-muted);
     text-align: center;
-    font-weight: 800;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    transition: color var(--motion-fast) ease;
 }
 
-.project-card:hover {
-    transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 var(--color-ink);
+.project-card:hover,
+.project-card:focus-visible {
+    transform: translateY(-2px);
+    border-color: var(--color-accent);
+    box-shadow: 0 10px 24px var(--color-card-shadow);
+}
+
+.project-card:hover .project-action,
+.project-card:focus-visible .project-action {
+    color: var(--color-accent);
 }
 
 
@@ -244,11 +283,6 @@ main>section {
     flex-direction: column;
     text-align: left;
     transition: 150ms ease;
-}
-
-.skill-card h3 {
-    margin: 0 0 1rem;
-    font-weight: 800;
 }
 
 .skill-card p {
