@@ -8,20 +8,21 @@
     --color-nav-overlay: rgba(0, 0, 0, 0.1);
     --motion-fast: 150ms;
     --motion-reveal: 400ms;
+    --nav-height: 4.5rem;
 }
 
 body {
-    padding-top: 4.5rem;
+    padding-top: var(--nav-height);
     color: var(--color-ink);
 }
 
 html {
-    scroll-padding-top: 4.5rem;
+    scroll-padding-top: var(--nav-height);
     scroll-behavior: smooth;
 }
 
 main>section {
-    min-height: calc(100svh - 4.5rem);
+    min-height: calc(100svh - var(--nav-height));
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -109,7 +110,6 @@ main>section {
 
 .social-links a {
     color: var(--color-muted);
-    align-items: center;
     transition: color var(--motion-fast) ease;
 }
 
@@ -163,14 +163,17 @@ main>section {
     grid-column: span 2;
 }
 
+.project-card,
+.skill-card {
+    padding: 1rem;
+    border: 2px solid var(--color-border);
+}
+
 .project-card {
     display: flex;
     flex-direction: column;
-    padding: 1rem;
-    border: 2px solid var(--color-border);
     color: var(--color-ink);
     text-decoration: none;
-    cursor: pointer;
     transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
 }
 
@@ -221,7 +224,6 @@ main>section {
 
 /* --- skills --- */
 #skills {
-    min-height: calc(100svh - 4.5rem);
     justify-content: space-between;
 }
 
@@ -240,8 +242,6 @@ main>section {
     display: flex;
     min-height: 260px;
     flex-direction: column;
-    padding: 1rem;
-    border: 2px solid var(--color-border);
     text-align: left;
     transition: 150ms ease;
 }
@@ -347,7 +347,6 @@ main>section {
 }
 
 .footer-update {
-    display: inline-block;
     padding: 0.15rem 0.4rem;
     color: var(--color-muted);
     font-family: monospace;
@@ -396,10 +395,6 @@ main>section {
 
     .about-content {
         max-width: none;
-    }
-
-    .social-links {
-        flex-wrap: wrap;
     }
 
     .project-grid {
