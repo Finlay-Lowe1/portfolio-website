@@ -39,9 +39,6 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#skills">Skills</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#contact">Contact</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
@@ -181,83 +178,84 @@
 
 
             <section id="skills" class="container py-5">
-                <h2 class="skills-heading"> skills</h2>
-                <div class="skills-grid">
-                    <article class="skill-card">
-                        <h3>Languages &amp; Development</h3>
+                <div class="skills-content">
+                    <h2 class="skills-heading"> skills</h2>
+                    <div class="skills-grid">
+                        <article class="skill-card">
+                            <h3>Languages &amp; Development</h3>
 
-                        <div class="project-tags">
-                            <span class="project-tag">Java</span>
-                            <span class="project-tag">C</span>
-                            <span class="project-tag">C++</span>
-                            <span class="project-tag">HTML</span>
-                            <span class="project-tag">CSS</span>
-                            <span class="project-tag">JavaScript</span>
-                        </div>
+                            <div class="project-tags">
+                                <span class="project-tag">Java</span>
+                                <span class="project-tag">C</span>
+                                <span class="project-tag">C++</span>
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
+                            </div>
 
-                        <p>
-                            Experience developing projects with multiple programming languages,
-                            with a growing focus on software engineering and web development.
-                        </p>
-                    </article>
+                            <p>
+                                Experience developing projects with multiple programming languages,
+                                with a growing focus on software engineering and web development.
+                            </p>
+                        </article>
 
-                    <article class="skill-card">
-                        <h3>Tools &amp; Technologies</h3>
+                        <article class="skill-card">
+                            <h3>Tools &amp; Technologies</h3>
 
-                        <div class="project-tags">
-                            <span class="project-tag">Git</span>
-                            <span class="project-tag">GitHub</span>
-                            <span class="project-tag">VS Code</span>
-                            <span class="project-tag">Bootstrap</span>
-                        </div>
+                            <div class="project-tags">
+                                <span class="project-tag">Git</span>
+                                <span class="project-tag">GitHub</span>
+                                <span class="project-tag">VS Code</span>
+                                <span class="project-tag">Bootstrap</span>
+                            </div>
 
-                        <p>
-                            Comfortable using version control, modern editors and frontend
-                            frameworks while building and maintaining software projects.
-                        </p>
-                    </article>
+                            <p>
+                                Comfortable using version control, modern editors and frontend
+                                frameworks while building and maintaining software projects.
+                            </p>
+                        </article>
+                    </div>
                 </div>
+
+                <footer id="contact" class="footer-bar">
+                    <div class="footer-contact">
+                        <div class="footer-details">
+
+                            <div class="footer-email">
+                                <p>Email</p>
+                                <a href="mailto:your@email.com">your@email.com</a>
+                            </div>
+
+                            <div class="footer-social">
+                                <p>Socials</p>
+
+                                <a href="#" target="_blank" rel="noopener">
+                                    GitHub
+                                    <i class="bi bi-github"></i>
+                                </a>
+
+                                <a href="#" target="_blank" rel="noopener">
+                                    LinkedIn
+                                    <i class="bi bi-linkedin"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="footer-bottom">
+                            <p class="footer-copyright"> &copy; Finlay Lowe</p>
+
+                            <button class="back-to-top" type="button">
+                                back to top
+                                <i class="bi bi-arrow-up"></i>
+                            </button>
+
+                            <span class="footer-update">Last updated: November 2026</span>
+                        </div>
+
+                    </div>
+                </footer>
             </section>
         </main>
-
-        <footer id="contact" class="container footer-bar">
-            <div class="footer-contact">
-                <div class="footer-details">
-
-                    <div class="footer-email">
-                        <p>Email</p>
-                        <a href="mailto:your@email.com">your@email.com</a>
-                    </div>
-
-                    <div class="footer-social">
-                        <p>Socials</p>
-
-                        <a href="#" target="_blank" rel="noopener">
-                            GitHub
-                            <i class="bi bi-github"></i>
-                        </a>
-
-                        <a href="#" target="_blank" rel="noopener">
-                            LinkedIn
-                            <i class="bi bi-linkedin"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="footer-bottom">
-                    <p class="footer-copyright"> &copy; Finlay Lowe</p>
-
-                    <button class="back-to-top" type="button">
-                        back to top
-                        <i class="bi bi-arrow-up"></i>
-                    </button>
-
-                    
-                    <span class="footer-update">Last updated: November 2026</span>
-                </div>
-
-            </div>
-        </footer>
 
     </div>
 
@@ -352,7 +350,7 @@
 
     <!-- script for arrow keys-->
     <script>
-        const sections = [...document.querySelectorAll("main > section")];
+        const sections = [...document.querySelectorAll("main > section, #contact")];
 
         document.addEventListener("keydown", (event) => {
             if (!["ArrowUp", "ArrowDown", "PageUp", "PageDown"].includes(event.key)) {
