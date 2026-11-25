@@ -5,12 +5,13 @@
     --color-accent: #dd4b27;
     --color-border: var(--color-ink);
     --color-card-border: #e6e1dc;
+    --color-card-background: #fdfaf8;
     --color-card-shadow: rgba(17, 17, 17, 0.06);
-    --color-tag-background: #f7f4f1;
+    --color-tag-background: #faf2ee;
     --color-shadow: rgba(0, 0, 0, 0.1);
     --color-nav-overlay: rgba(0, 0, 0, 0.1);
-    --motion-fast: 150ms;
-    --motion-reveal: 400ms;
+    --motion-fast: 300ms;
+    --motion-reveal: 800ms;
     --nav-height: 4.5rem;
 }
 
@@ -97,8 +98,12 @@ main>section {
 
 .home-introduction h1 {
     max-width: 700px;
-    font-size: clamp(3.25rem, 6vw, 6.5rem);
+    font-size: clamp(2.25rem, 4vw, 4rem);
     line-height: 0.95;
+}
+
+.home-introduction h1 > span {
+    font-size: clamp(3rem, 5vw, 5.5rem);
 }
 
 .home-introduction h1 span,
@@ -189,6 +194,14 @@ main>section {
 .skill-card {
     padding: 1rem;
     border: 1px solid var(--color-card-border);
+    border-radius: 0.75rem;
+    background: var(--color-card-background);
+    box-shadow: 0 4px 18px var(--color-card-shadow);
+}
+
+.project-card-featured,
+.skill-card {
+    border-top: 2px solid var(--color-accent);
 }
 
 .project-card {
@@ -212,10 +225,24 @@ main>section {
     width: fit-content;
     padding: 0.2rem 0.45rem;
     background: var(--color-tag-background);
-    color: var(--color-muted);
+    color: var(--color-accent);
+    border-radius: 999px;
     font-size: 0.7rem;
     font-weight: 700;
     line-height: 1;
+}
+
+.skill-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.skill-group h4 {
+    margin: 0 0 0.4rem;
+    color: var(--color-muted);
+    font-size: 0.8rem;
+    font-weight: 700;
 }
 
 
@@ -224,6 +251,7 @@ main>section {
     margin: 0 0 1rem;
     font-size: clamp(1.25rem, 2vw, 1.6rem);
     font-weight: 700;
+    letter-spacing: -0.02em;
 }
 
 .project-card h3 {
@@ -232,7 +260,7 @@ main>section {
 
 .project-card p {
     text-align: left;
-    line-height: 1.5;
+    line-height: 1.6;
     margin: 0.5rem 0 1rem;
 }
 
@@ -287,7 +315,7 @@ main>section {
 
 .skill-card p {
     margin: 1rem 0 0;
-    line-height: 1.5;
+    line-height: 1.6;
 }
 
 
@@ -424,6 +452,10 @@ main>section {
     }
 
     .home-introduction h1 {
+        font-size: clamp(2.5rem, 12vw, 4rem);
+    }
+
+    .home-introduction h1 > span {
         font-size: clamp(2.8rem, 14vw, 4.5rem);
     }
 
