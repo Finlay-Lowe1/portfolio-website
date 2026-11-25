@@ -179,7 +179,7 @@
 
             <section id="skills" class="container py-5">
                 <div class="skills-content">
-                    <h2 class="skills-heading"> skills</h2>
+                    <h2 class="skills-heading">Skills</h2>
                     <div class="skills-grid">
                         <article class="skill-card">
                             <h3>Languages &amp; Development</h3>
@@ -346,6 +346,56 @@
 
 
         }, { passive: true });
+    </script>
+
+    <!-- Section navigation and card reveal effects -->
+    <script>
+        if ("IntersectionObserver" in window) {
+            const sectionNavLinks = [...navbar.querySelectorAll('.nav-link[href^="#"]')];
+            const sectionTargets = sectionNavLinks
+                .map((link) => ({
+                    link,
+                    section: document.querySelector(link.getAttribute("href"))
+                }))
+                .filter(({ section }) => section);
+
+            const activeSectionObserver = new IntersectionObserver(() => {
+                const marker = window.innerHeight * 0.35;
+                const currentTarget = sectionTargets.find(({ section }) => {
+                    const bounds = section.getBoundingClientRect();
+                    return bounds.top <= marker && bounds.bottom > marker;
+                });
+
+                if (!currentTarget) return;
+
+                sectionTargets.forEach(({ link, section }) => {
+                    const isActive = section === currentTarget.section;
+                    link.classList.toggle("active", isActive);
+
+                    if (isActive) {
+                        link.setAttribute("aria-current", "location");
+                    } else {
+                        link.removeAttribute("aria-current");
+                    }
+                });
+            }, { rootMargin: "-100px 0px -200px 0px" });
+
+            sectionTargets.forEach(({ section }) => activeSectionObserver.observe(section));
+
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (!entry.isIntersecting) return;
+
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                });
+            }, { threshold: 0.15 });
+
+            document.querySelectorAll(".project-card, .skill-card").forEach((card) => {
+                card.classList.add("reveal");
+                revealObserver.observe(card);
+            });
+        }
     </script>
 
     <!-- script for arrow keys-->

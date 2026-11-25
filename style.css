@@ -1,6 +1,18 @@
+:root {
+    --color-ink: #111;
+    --color-muted: #777;
+    --color-copy: #555;
+    --color-accent: #dd4b27;
+    --color-border: var(--color-ink);
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-nav-overlay: rgba(0, 0, 0, 0.1);
+    --motion-fast: 150ms;
+    --motion-reveal: 400ms;
+}
+
 body {
     padding-top: 4.5rem;
-    color: rgb(0, 0, 0);
+    color: var(--color-ink);
 }
 
 html {
@@ -17,12 +29,6 @@ main>section {
     padding-block: 2rem;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-}
-
 
 
 /* --- navbar styling --- */
@@ -33,13 +39,22 @@ main>section {
 
 .navbarScroll.scrolled {
     --bs-bg-opacity: 0.7;
-    background: #0000001a;
+    background: var(--color-nav-overlay);
     backdrop-filter: blur(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px var(--color-shadow);
 }
 
 .navbarScroll.navbar-hidden {
     transform: translateY(-100%);
+}
+
+.navbarScroll .nav-link {
+    transition: color var(--motion-fast) ease;
+}
+
+.navbarScroll .nav-link:hover,
+.navbarScroll .nav-link.active {
+    color: var(--color-accent);
 }
 
 
@@ -63,7 +78,7 @@ main>section {
 .home-label,
 .about-label {
     margin: 0 0 1.5rem;
-    color: #777;
+    color: var(--color-muted);
     font-size: 0.75rem;
     line-height: 1;
     letter-spacing: 0.2em;
@@ -79,7 +94,7 @@ main>section {
 .home-introduction h1 span,
 .about-content h2 span {
     display: block;
-    color: #dd4b27;
+    color: var(--color-accent);
     font-family: Georgia, serif;
     font-style: italic;
     font-weight: 400;
@@ -93,13 +108,13 @@ main>section {
 }
 
 .social-links a {
-    color: #777;
+    color: var(--color-muted);
     align-items: center;
-    transition: color 150ms ease;
+    transition: color var(--motion-fast) ease;
 }
 
 .social-links a:hover {
-    color: #dd4b27;
+    color: var(--color-accent);
 }
 
 /* --- about styling --- */
@@ -118,7 +133,7 @@ main>section {
     max-width: 600px;
     line-height: 1.5;
     margin: 0.5rem 0 1rem;
-    color: #555;
+    color: var(--color-copy);
 }
 
 
@@ -127,6 +142,15 @@ main>section {
 .projects {
     margin-bottom: 1.5rem;
     text-align: left;
+}
+
+.projects,
+.skills-heading {
+    color: var(--color-ink);
+    font-size: clamp(1.8rem, 2.5vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.03em;
 }
 
 .project-grid {
@@ -143,11 +167,11 @@ main>section {
     display: flex;
     flex-direction: column;
     padding: 1rem;
-    border: 2px solid #111;
-    color: #111;
+    border: 2px solid var(--color-border);
+    color: var(--color-ink);
     text-decoration: none;
     cursor: pointer;
-    transition: 150ms ease;
+    transition: transform var(--motion-fast) ease, box-shadow var(--motion-fast) ease;
 }
 
 
@@ -162,7 +186,7 @@ main>section {
 .project-tag {
     width: fit-content;
     padding: 0.2rem 0.45rem;
-    border: 1px solid #111;
+    border: 1px solid var(--color-border);
     font-size: 0.7rem;
     font-weight: 700;
     line-height: 1;
@@ -190,7 +214,7 @@ main>section {
 
 .project-card:hover {
     transform: translate(-2px, -2px);
-    box-shadow: 7px 7px 0 #111;
+    box-shadow: 7px 7px 0 var(--color-ink);
 }
 
 
@@ -217,7 +241,7 @@ main>section {
     min-height: 260px;
     flex-direction: column;
     padding: 1rem;
-    border: 2px solid #111;
+    border: 2px solid var(--color-border);
     text-align: left;
     transition: 150ms ease;
 }
@@ -239,7 +263,7 @@ main>section {
     display: flex;
     align-items: flex-start;
     padding-top: 2.5rem;
-    border-top: 2px solid #111;
+    border-top: 2px solid var(--color-border);
 }
 
 .footer-contact {
@@ -260,7 +284,7 @@ main>section {
 .footer-email p,
 .footer-social>p {
     margin: 0 0 0.75rem;
-    color: #777;
+    color: var(--color-muted);
     font-size: 0.75rem;
     letter-spacing: 0.2em;
     text-transform: uppercase;
@@ -280,7 +304,7 @@ main>section {
 .footer-email a,
 .footer-social a,
 .footer-bottom .back-to-top {
-    color: #111;
+    color: var(--color-ink);
     font-size: 1rem;
     line-height: 1;
     text-decoration: none;
@@ -299,7 +323,7 @@ main>section {
 .footer-email a:hover,
 .footer-social a:hover,
 .footer-bottom .back-to-top:hover {
-    color: #dd4b27;
+    color: var(--color-accent);
 }
 
 .footer-bottom {
@@ -316,7 +340,7 @@ main>section {
 }
 
 .footer-copyright {
-    color: #777;
+    color: var(--color-muted);
     font-size: 0.75rem;
     justify-self: start;
     margin: 0;
@@ -325,7 +349,7 @@ main>section {
 .footer-update {
     display: inline-block;
     padding: 0.15rem 0.4rem;
-    color: #777;
+    color: var(--color-muted);
     font-family: monospace;
     font-size: 0.65rem;
     line-height: 1;
@@ -342,6 +366,21 @@ main>section {
     border: 0;
     background: transparent;
     font-weight: 400;
+}
+
+.reveal {
+    opacity: 0;
+    translate: 0 0.75rem;
+    transition:
+        opacity var(--motion-reveal) ease,
+        translate var(--motion-reveal) ease,
+        transform var(--motion-fast) ease,
+        box-shadow var(--motion-fast) ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    translate: 0 0;
 }
 
 /* --- for smaller screens --- */
